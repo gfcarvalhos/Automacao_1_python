@@ -2,11 +2,12 @@
 
 import pyautogui
 import time
+import pandas as pd
 
 pyautogui.PAUSE = 0.25
 
 # Passo 1: Acessar o sistema da empresa
-pyautogui.press("win")
+'''pyautogui.press("win")
 pyautogui.write("chrome")
 pyautogui.press("enter")
 pyautogui.write("https://pages.hashtagtreinamentos.com/aula1-intensivao-sistema")
@@ -27,9 +28,13 @@ time.sleep(3)
 # Passo 3: Baixar base dados
 pyautogui.click(x=486, y=533, button = "right")
 pyautogui.click(x=589, y=839)
-
+'''
 # Passo 4: Calcular indicadores
+tabela = pd.read_csv(r"C:\Users\gabri\Downloads\Compras.csv", sep = ";") #r = lê o caminho como está
 
-
+"Indicadores"
+totalGasto = tabela["ValorFinal"].sum()
+qtdTotal = tabela["Quantidade"].sum()
+precoMedio = totalGasto/qtdTotal
 
 #Passo 5: Enviar e-mail
